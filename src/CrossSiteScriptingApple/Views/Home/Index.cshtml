@@ -1,0 +1,78 @@
+﻿@using System.Web.UI.HtmlControls
+@model BadApples.Model.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "XSS Page";
+}
+
+<div class="jumbotron">
+    <h1>XSS Vulnerabilities</h1>
+    <div id="helloText" hidden></div>
+    <p id="enterNameText">Enter your name so we know who you are!</p>
+
+    @*@using (Html.BeginForm("Login", "Account", new {ReturnUrl = ViewBag.ReturnUrl}, FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+    {*@
+        @*<input id="nameEntry" name="xss-input" class="form-control"/>*@
+        @Html.TextBoxFor(m => m.Email, new {@class = "form-control", @id = "nameEntry"})
+        <input id="submitButton" name="xss-input" type="submit" value="Submit" class="btn btn-submit"/>
+    @*}*@
+</div>
+
+<script type="text/javascript">
+    $('#submitButton').on('click', function () {
+
+        var nameEntry = $('#nameEntry').val();
+        createCookie('user-name', nameEntry);
+        console.log('cookie created');
+        location.reload();
+    });
+
+    $('#nameEntry').keypress(function (e) {
+        if (e.which == 13) {
+            $('#submitButton').trigger('click');
+        }
+    });
+
+    var userName = readCookie('user-name');
+    if (userName) {
+        $('#enterNameText').hide();
+        $('#helloText').show();
+
+
+        // This line is bad
+        $('#helloText').html('Hello, ' + userName);
+
+    } else {
+        $('#enterNameText').show();
+        $('#helloText').hide();
+    }
+
+    @*
+        fun exploit
+        <script>$('#nameEntry').keypress(function (e) {console.log(String.fromCharCode(e.keyCode))});</script>
+    *@
+
+
+
+
+    // Cookie helper function
+    function createCookie(name, value) {
+        document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + "; path=/";
+        //document.cookie = encodeURIComponent(name) + "=" + value + "; path=/";
+    }
+
+    function readCookie(name) {
+        var nameEQ = encodeURIComponent(name) + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+            //if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    function eraseCookie(name) {
+        createCookie(name, "", -1);
+    }
+</script>

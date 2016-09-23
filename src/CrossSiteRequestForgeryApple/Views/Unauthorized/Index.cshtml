@@ -1,0 +1,7 @@
+﻿@{
+    ViewBag.Title = "Unauthorized";
+}
+<h2 class="has-error">@ViewBag.Title.</h2>
+<h3>You are not authorzied to view this page</h3>
+
+<p>Try <a href="@Url.Action("Login", "Account")">logging in</a> as a different user.</p>

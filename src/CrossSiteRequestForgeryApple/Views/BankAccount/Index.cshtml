@@ -1,0 +1,37 @@
+﻿@model CrossSiteRequestForgeryApple.Models.BankAccountViewModel
+@{
+    ViewBag.Title = "CSRF Page";
+}
+
+<div class="jumbotron">
+    <h1>Cross Site Request Forgery Vulnerabilities</h1>
+</div>
+
+<h2>@User.Identity.Name - Bank Account</h2>
+<h3>Current Balance: <label>@Model.CurrentBalance.ToString("c")</label></h3>
+<div class="row">
+    <div class="col-md-12">
+        <section>
+            @using (Html.BeginForm("Withdraw", "BankAccount", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(m => m.CurrentBalance);
+                <hr/>
+                @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                <div class="form-group">
+                    @Html.LabelFor(m => m.TransferAmount, "Amount to withdraw", new {@class = "col-md-2 control-label"})
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.TransferAmount, new {@class = "form-control"})
+                        @Html.ValidationMessageFor(m => m.TransferAmount, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Withdraw" class="btn btn-default"/>
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+</div>

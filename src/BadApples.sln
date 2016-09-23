@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-InjectionApple - Mitch", "InjectionApple\01-InjectionApple - Mitch.csproj", "{69B0B2A2-FF04-4F54-9626-FAFDABD9F40C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-CrossSiteScriptingApple - Mitch", "CrossSiteScriptingApple\03-CrossSiteScriptingApple - Mitch.csproj", "{4567868B-1119-4DF5-BBB7-D86DA4335F97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04-InsecureDirectObjectReferenceApple - Dan", "InsecureDirectObjectReferenceApple\04-InsecureDirectObjectReferenceApple - Dan.csproj", "{819073B7-EF1F-4A50-86EA-421008823833}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07-FunctionLevelAccessControlApple - Dan", "FunctionLevelAccessControlApple\07-FunctionLevelAccessControlApple - Dan.csproj", "{06A151FF-0648-4ED0-9C78-5DC16F86C2BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08-CrossSiteRequestForgeryApple - Mitch", "CrossSiteRequestForgeryApple\08-CrossSiteRequestForgeryApple - Mitch.csproj", "{F74B6E08-CF46-4CD4-8B80-9F72C97E8892}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BadApples.Model", "BadApples.Model\BadApples.Model.csproj", "{6F548913-35CF-4CBC-8DA4-27D232F49B9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69B0B2A2-FF04-4F54-9626-FAFDABD9F40C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69B0B2A2-FF04-4F54-9626-FAFDABD9F40C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69B0B2A2-FF04-4F54-9626-FAFDABD9F40C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69B0B2A2-FF04-4F54-9626-FAFDABD9F40C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4567868B-1119-4DF5-BBB7-D86DA4335F97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4567868B-1119-4DF5-BBB7-D86DA4335F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4567868B-1119-4DF5-BBB7-D86DA4335F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4567868B-1119-4DF5-BBB7-D86DA4335F97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{819073B7-EF1F-4A50-86EA-421008823833}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{819073B7-EF1F-4A50-86EA-421008823833}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{819073B7-EF1F-4A50-86EA-421008823833}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{819073B7-EF1F-4A50-86EA-421008823833}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06A151FF-0648-4ED0-9C78-5DC16F86C2BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06A151FF-0648-4ED0-9C78-5DC16F86C2BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06A151FF-0648-4ED0-9C78-5DC16F86C2BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06A151FF-0648-4ED0-9C78-5DC16F86C2BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F74B6E08-CF46-4CD4-8B80-9F72C97E8892}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F74B6E08-CF46-4CD4-8B80-9F72C97E8892}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F74B6E08-CF46-4CD4-8B80-9F72C97E8892}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F74B6E08-CF46-4CD4-8B80-9F72C97E8892}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F548913-35CF-4CBC-8DA4-27D232F49B9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F548913-35CF-4CBC-8DA4-27D232F49B9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F548913-35CF-4CBC-8DA4-27D232F49B9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F548913-35CF-4CBC-8DA4-27D232F49B9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
